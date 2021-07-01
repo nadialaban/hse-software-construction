@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="HW1_198_AbuAlLaban_Nadia:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/HW1_198_AbuAlLaban_Nadia_jar</output-path>
-    <root id="archive" name="HW1_198_AbuAlLaban_Nadia.jar">
-      <element id="module-output" name="HW1_198_AbuAlLaban_Nadia" />
-    </root>
-  </artifact>
-</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="derbyshared">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/HSE/projects/TOOLS/db-derby-10.15.2.0-bin/lib/derbyshared.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

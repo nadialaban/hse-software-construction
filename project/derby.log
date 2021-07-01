@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue May 11 06:05:54 MSK 2021:
+ Производится загрузка Derby версии The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): экземпляр a816c00e-0179-5963-578c-000007a51920
+в каталоге базы данных /Users/apple/IdeaProjects/HW5_198_AbuAlLaban_Nadia/HW6_198_AbuAlLaban_Nadia/phonebook-db jdk.internal.loader.ClassLoaders$AppClassLoader@77556fd 
+
+java.vendor=Amazon.com Inc.
+java.runtime.version=11.0.8+10-LTS
+user.dir=/Users/apple/IdeaProjects/HW5_198_AbuAlLaban_Nadia/HW6_198_AbuAlLaban_Nadia
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.16
+derby.system.home=null
+Запущен загрузчик классов базы данных - derby.database.classpath=''

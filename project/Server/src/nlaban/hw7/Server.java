@@ -12,6 +12,12 @@ public class Server {
     private static int index = 0;
 
 
+    /**
+     * Инициализация серера
+     *
+     * @param port - порт
+     * @return получилось ли
+     */
     private static boolean init(int port) {
         try {
             server = new ServerSocket(port);
@@ -21,6 +27,11 @@ public class Server {
         return true;
     }
 
+    /**
+     * Запуск сервера
+     *
+     * @throws IOException если что-то пошло не так
+     */
     private static void run() throws IOException {
         while (true) {
             Socket socket = server.accept();
@@ -36,6 +47,12 @@ public class Server {
         }
     }
 
+    /**
+     * Получение клиента по номеру
+     *
+     * @param i - номер
+     * @return клиент
+     */
     public static ServerThread getClient(int i) {
         for (var client : clientList) {
             if (client.getIndex() == i)
@@ -44,6 +61,12 @@ public class Server {
         return null;
     }
 
+    /**
+     * Считываение порта с клавиатуры
+     *
+     * @param scanner - поток ввода в консоль
+     * @return номер порта
+     */
     private static int getPort(Scanner scanner) {
         System.out.print("Please, enter port [1023;65353]\n > ");
         int port = -1;
@@ -65,6 +88,11 @@ public class Server {
         return port;
     }
 
+    /**
+     * Утсановка директории сервера
+     *
+     * @param scanner - поток ввода в консоль
+     */
     private static void setDirectory(Scanner scanner) {
         System.out.print("Enter server directory\n > ");
 

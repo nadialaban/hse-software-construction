@@ -4,17 +4,37 @@ import java.io.*;
 import java.util.Objects;
 
 public class FileManager {
+    /**
+     * Размер массива байтов
+     */
     private static final int BUFFER_SIZE = 8192;
 
+    /**
+     * Номер клиента
+     */
     private final int index;
 
+    /**
+     * Директория сервера
+     */
     private static File directory;
+    /**
+     * Скачиваемый файл
+     */
     private File file;
 
+    /**
+     * Конструктор
+     *
+     * @param index - номер клиента
+     */
     public FileManager(int index) {
         this.index = index;
     }
 
+    /**
+     * Отправка файла клиенту
+     */
     public void sendFile() {
         var client = Server.getClient(index);
         if (client == null)
@@ -35,27 +55,50 @@ public class FileManager {
     }
 
 
+    /**
+     * Получение списка файлов директории
+     *
+     * @return строку со списком
+     */
     public static String getFileList() {
         return "- " + String.join("\n- ", Objects.requireNonNull(directory.list()));
     }
 
+    /**
+     * Установка директории
+     *
+     * @param path - путь
+     * @return получилось ли
+     */
     public static boolean setDirectory(String path) {
         FileManager.directory = new File(path);
-        return checkDirectory(path, directory);
+        return checkDirectory(path);
     }
 
-    private static boolean checkDirectory(String path, File dir) {
-        if (!dir.exists()) {
+    /**
+     * Проверка директории
+     *
+     * @param path - путь
+     * @return есть ли папка
+     */
+    private static boolean checkDirectory(String path) {
+        if (!FileManager.directory.exists()) {
             System.out.printf("'%s' does not exist. Please, try again!\n > ", path);
             return false;
         }
-        if (!dir.isDirectory()) {
+        if (!FileManager.directory.isDirectory()) {
             System.out.printf("'%s' is not a directory. Please, try again!\n > ", path);
             return false;
         }
         return true;
     }
 
+    /**
+     * Установка фвйла для сачивания
+     *
+     * @param filename - имя файла
+     * @return - получилось ли
+     */
     public String setFile(String filename) {
         file = new File(directory.getPath() + File.separator + filename);
         if (!file.exists())
@@ -67,14 +110,23 @@ public class FileManager {
         return "ok";
     }
 
+    /**
+     * @return размер файла скачивания
+     */
     public long getSize() {
         return file.length();
     }
 
+    /**
+     * @return имя файла скачивания
+     */
     public String getFilename() {
         return file.getName();
     }
 
+    /**
+     * удаляем выбор файла
+     */
     public void cleanFile() {
         file = null;
     }

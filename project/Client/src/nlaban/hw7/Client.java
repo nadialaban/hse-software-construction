@@ -5,18 +5,46 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client {
+    /**
+     * Сокет
+     */
     private static Socket client;
 
+    /**
+     * Поток чтения с консоли
+     */
     private static BufferedReader reader;
 
+    /**
+     * Поток чтения сообщений с сервера
+     */
     private static BufferedReader in;
+    /**
+     * Поток для отправки сообщений на сервер
+     */
     private static BufferedWriter out;
 
+    /**
+     * Поток чтения байтов с сервера
+     */
     private static DataInputStream inData;
 
+    /**
+     * Состояние клиента
+     */
     private static String state = "choose";
+    /**
+     * текущая длина прогрес бара
+     */
     private static int pbLength = 0;
 
+    /**
+     * Инициализация сокета
+     *
+     * @param host - хост
+     * @param port - порт
+     * @return получилось ли
+     */
     private static boolean init(String host, int port) {
         try {
             client = new Socket(InetAddress.getByName(host), port);
@@ -31,6 +59,9 @@ public class Client {
         return true;
     }
 
+    /**
+     * Запуск чтения и записи
+     */
     private static void run() {
         ClientReader.setReader(in, inData);
         ClientSender.setThreads(reader, out);
@@ -39,6 +70,9 @@ public class Client {
         new ClientSender().start();
     }
 
+    /**
+     * Отключение клиента
+     */
     public static void downService() {
         try {
             if (!client.isClosed()) {
@@ -50,6 +84,11 @@ public class Client {
         }
     }
 
+    /**
+     * Получение пути
+     *
+     * @param path - путь
+     */
     public static void getPath(String path) {
         while (!FileManager.setDirectory(path)) {
             try {
@@ -61,6 +100,11 @@ public class Client {
         }
     }
 
+    /**
+     * Получение хоста
+     *
+     * @return хост
+     */
     private static String getHost() {
         String host;
         System.out.print("Please, enter host\n > ");
@@ -73,6 +117,11 @@ public class Client {
         return host;
     }
 
+    /**
+     * Получение порта
+     *
+     * @return - порт
+     */
     private static int getPort() {
         int port = -1;
         System.out.print("Please, enter port [1023;65353]\n > ");
@@ -94,13 +143,24 @@ public class Client {
         return state;
     }
 
+    /**
+     * Установка состояния
+     *
+     * @param state - состояние
+     */
     public static void setState(String state) {
         Client.state = state;
     }
 
+    /**
+     * Отображения прогрессбара
+     *
+     * @param progress - скачанные байты
+     * @param size     - размер файла
+     */
     public static void showProgress(long progress, long size) {
-        int percent = (int)((1.0 * progress)/(1.0 * size) * 100);
-        char[] progressBar = String.format("|"+"#".repeat(100)+"|\t%d %%\t%d/%d bytes", percent, progress, size).toCharArray();
+        int percent = (int) ((1.0 * progress) / (1.0 * size) * 100);
+        char[] progressBar = String.format("|" + "#".repeat(100) + "|\t%d %%\t%d/%d bytes", percent, progress, size).toCharArray();
 
         for (int i = 1 + percent; i < 101; i++)
             progressBar[i] = '-';

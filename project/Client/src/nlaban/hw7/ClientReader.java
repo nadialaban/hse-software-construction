@@ -3,16 +3,34 @@ package nlaban.hw7;
 import java.io.*;
 
 public class ClientReader extends Thread {
+    /**
+     * Размер массива байтов
+     */
     private static final int BUFFER_SIZE = 8192;
 
+    /**
+     * Поток чтения сообщений с сервера
+     */
     private static BufferedReader in;
+    /**
+     * Поток чтения байтов с сервера
+     */
     private static DataInputStream inData;
 
+    /**
+     * Установка потоков
+     *
+     * @param in     - Поток чтения сообщений с сервера
+     * @param inData - Поток чтения байтов с сервера
+     */
     public static void setReader(BufferedReader in, DataInputStream inData) {
         ClientReader.in = in;
         ClientReader.inData = inData;
     }
 
+    /**
+     * Запуск чтения сообщений с сервера
+     */
     @Override
     public void run() {
         String str;
@@ -41,6 +59,12 @@ public class ClientReader extends Thread {
         }
     }
 
+    /**
+     * Загрузка файла
+     *
+     * @param filename - имя файла
+     * @param size     - рамер файла
+     */
     private void download(String filename, int size) {
         Client.showProgress(0, size);
         int nRead, n = 0;

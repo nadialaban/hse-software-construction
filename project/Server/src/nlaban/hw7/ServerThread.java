@@ -90,6 +90,7 @@ public class ServerThread extends Thread {
 
     /**
      * Обработка запросов клиента
+     *
      * @param request - сообщение клиента
      */
     private void handleRequest(String request) {
@@ -113,6 +114,7 @@ public class ServerThread extends Thread {
 
     /**
      * Смена состояния клиента
+     *
      * @param st - новое состояние
      */
     void setState(String st) {
@@ -128,6 +130,7 @@ public class ServerThread extends Thread {
 
     /**
      * Выбор файла для скачивания
+     *
      * @param showList - показывать ли список файлов
      */
     private void sendChooseForm(boolean showList) {
@@ -147,6 +150,7 @@ public class ServerThread extends Thread {
 
     /**
      * Подтверждение скачивания
+     *
      * @param filename - название файла
      */
     private void sendConfirmation(String filename) {
@@ -172,6 +176,7 @@ public class ServerThread extends Thread {
 
     /**
      * Запрос папки скачивания
+     *
      * @param answer - ответ на подтверждение
      */
     private void sendPathForm(String answer) {
@@ -190,6 +195,9 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     * Отправка файла
+     */
     private void sendFile() {
         try {
             out.write("Server:\tstart sending file...\n");
@@ -209,6 +217,12 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     * Отправка массива байтов
+     *
+     * @param buffer - массив байтов файла
+     * @param nRead  - количестово считанных байт
+     */
     public void sendPart(byte[] buffer, int nRead) {
         try {
             outData.write(buffer, 0, nRead);
@@ -218,6 +232,9 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     * Отключение клиента
+     */
     public void downService() {
         try {
             if (!socket.isClosed()) {
@@ -236,6 +253,11 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     * Получение номера клиента
+     *
+     * @return номер
+     */
     public int getIndex() {
         return index;
     }

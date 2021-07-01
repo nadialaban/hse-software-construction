@@ -5,14 +5,29 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 public class ClientSender extends Thread {
+    /**
+     * поток чтения с консоли
+     */
     private static BufferedReader reader;
+    /**
+     * поток отправления на сервер
+     */
     private static BufferedWriter out;
 
+    /**
+     * Установка потоков
+     *
+     * @param reader - поток чтения с консоли
+     * @param out    - поток отправления на сервер
+     */
     public static void setThreads(BufferedReader reader, BufferedWriter out) {
         ClientSender.reader = reader;
         ClientSender.out = out;
     }
 
+    /**
+     * Запуск отправки на сервер
+     */
     @Override
     public void run() {
         while (true) {

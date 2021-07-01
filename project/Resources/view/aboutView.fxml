@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+  minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0"
+  xmlns="http://javafx.com/javafx/15.0.1"
+  fx:controller="nlaban.hw5.phonebook.controller.AboutViewController">
+  <children>
+    <Button mnemonicParsing="false" onAction="#close" text="Закрыть">
+      <VBox.margin>
+        <Insets top="10.0"/>
+      </VBox.margin>
+    </Button>
+    <ImageView fitHeight="55.0" fitWidth="55.0" nodeOrientation="INHERIT" pickOnBounds="true"
+      preserveRatio="true" visible="false" fx:id="img">
+      <VBox.margin>
+        <Insets bottom="10.0"/>
+      </VBox.margin>
+      <image>
+        <Image url="@../abu.png"/>
+      </image>
+    </ImageView>
+    <Label text="БПИ 198"/>
+    <Label text="Абу Аль Лабан Надя" textAlignment="CENTER"/>
+  </children>
+</VBox>

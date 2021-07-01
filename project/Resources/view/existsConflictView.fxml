@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<HBox xmlns:fx="http://javafx.com/fxml/" xmlns="http://javafx.com/javafx/"
+  fx:controller="nlaban.hw5.phonebook.controller.ExistsConflictViewController">
+  <children>
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="500.0" prefWidth="400.0">
+      <children>
+        <GridPane prefHeight="438.0" prefWidth="400.0">
+          <children>
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="11" disable="true"
+              fx:id="datePickerExisting"/>
+            <Label text="Фамилия">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="2" text="Имя">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="4" text="Отчество">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="6" text="Мобильный тел.">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="8" text="Домашний тел.">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="10" text="Адрес">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="11" text="День рождения">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <TextField GridPane.columnIndex="1" disable="true" editable="false"
+              fx:id="lastNameExistingTextField">
+              <GridPane.margin>
+                <Insets/>
+              </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" disable="true"
+              editable="false" fx:id="firstNameExistingTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" disable="true"
+              editable="false" fx:id="middleNameExistingTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" disable="true"
+              editable="false" fx:id="mobilePhoneNumberExistingTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" disable="true"
+              editable="false" fx:id="homePhoneNumberExistingTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" disable="true"
+              editable="false" fx:id="addressExistingTextField"/>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES"
+              maxWidth="149.82977294921875" minWidth="10.0" prefWidth="149.82977294921875"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.1251678466797" minWidth="10.0"
+              prefWidth="220.1251678466797"/>
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+          </rowConstraints>
+        </GridPane>
+        <Label text="Из телефонной книги">
+          <VBox.margin>
+            <Insets left="20.0"/>
+          </VBox.margin>
+          <font>
+            <Font size="16.0"/>
+          </font>
+        </Label>
+        <Label text="Комментарий">
+          <VBox.margin>
+            <Insets left="10.0"/>
+          </VBox.margin>
+        </Label>
+        <Label alignment="BOTTOM_RIGHT" textFill="RED">
+          <font>
+            <Font size="9.0"/>
+          </font>
+        </Label>
+        <Label alignment="BOTTOM_RIGHT" textFill="RED">
+          <font>
+            <Font size="9.0"/>
+          </font>
+        </Label>
+        <TextArea disable="true" editable="false" prefHeight="170.0" prefWidth="380.0"
+          fx:id="noteExistingTextArea">
+          <VBox.margin>
+            <Insets left="10.0" right="10.0"/>
+          </VBox.margin>
+        </TextArea>
+        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="400.0">
+          <items>
+            <Button mnemonicParsing="false" onAction="#saveExisting"
+              text="Оставить старый контакт"/>
+          </items>
+        </ToolBar>
+      </children>
+    </VBox>
+    <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0">
+      <children>
+        <GridPane prefHeight="438.0" prefWidth="400.0">
+          <children>
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="11" fx:id="datePickerImported"/>
+            <Label text="Фамилия">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="2" text="Имя">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="4" text="Отчество">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="6" text="Мобильный тел.">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="8" text="Домашний тел.">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="10" text="Адрес">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.rowIndex="11" text="День рождения">
+              <GridPane.margin>
+                <Insets right="20.0"/>
+              </GridPane.margin>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="BOTTOM_RIGHT"
+              textFill="RED" fx:id="lastNameImportedErrorLabel">
+              <font>
+                <Font size="9.0"/>
+              </font>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="BOTTOM_RIGHT"
+              textFill="RED" fx:id="firstNameImportedErrorLabel">
+              <font>
+                <Font size="9.0"/>
+              </font>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="BOTTOM_RIGHT"
+              textFill="RED" fx:id="middleNameImportedErrorLabel">
+              <font>
+                <Font size="9.0"/>
+              </font>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="7"
+              alignment="BOTTOM_RIGHT" textFill="RED" fx:id="mobilePhoneNumberImportedErrorLabel">
+              <font>
+                <Font size="9.0"/>
+              </font>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="9" alignment="BOTTOM_RIGHT"
+              textFill="RED" fx:id="homePhoneNumberImportedErrorLabel">
+              <font>
+                <Font size="9.0"/>
+              </font>
+            </Label>
+            <TextField GridPane.columnIndex="1" fx:id="lastNameImportedTextField">
+              <GridPane.margin>
+                <Insets/>
+              </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"
+              fx:id="firstNameImportedTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"
+              fx:id="middleNameImportedTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6"
+              fx:id="mobilePhoneNumberImportedTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8"
+              fx:id="homePhoneNumberImportedTextField"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10"
+              fx:id="addressImportedTextField"/>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES"
+              maxWidth="149.82977294921875" minWidth="10.0" prefWidth="149.82977294921875"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.1251678466797" minWidth="10.0"
+              prefWidth="220.1251678466797"/>
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+          </rowConstraints>
+        </GridPane>
+        <Label text="Импортированный">
+          <VBox.margin>
+            <Insets left="20.0"/>
+          </VBox.margin>
+          <font>
+            <Font size="16.0"/>
+          </font>
+        </Label>
+        <Label text="Комментарий">
+          <VBox.margin>
+            <Insets left="10.0"/>
+          </VBox.margin>
+        </Label>
+        <Label textFill="RED" fx:id="noteImportedErrorLabel">
+          <VBox.margin>
+            <Insets left="10.0"/>
+          </VBox.margin>
+          <font>
+            <Font size="9.0"/>
+          </font>
+        </Label>
+        <Label textFill="RED" fx:id="contactImportedErrorLabel">
+          <VBox.margin>
+            <Insets left="10.0"/>
+          </VBox.margin>
+          <font>
+            <Font size="9.0"/>
+          </font>
+        </Label>
+        <TextArea prefHeight="170.0" prefWidth="380.0" fx:id="noteImportedTextArea">
+          <VBox.margin>
+            <Insets left="10.0" right="10.0"/>
+          </VBox.margin>
+        </TextArea>
+        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="400.0">
+          <items>
+            <Button mnemonicParsing="false" onAction="#saveImported" text="Оставить новый контакт"/>
+          </items>
+        </ToolBar>
+      </children>
+    </VBox>
+  </children>
+</HBox>
